@@ -44,7 +44,7 @@ export default function Navigation() {
                     <IconButton
                         as={Link}
                         href="/Profile"
-                        size={'md'}
+                        size={'lg'}
                         icon={<BiHomeAlt />}
                         onClick={isOpen ? onClose : onOpen}
                     />
