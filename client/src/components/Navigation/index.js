@@ -139,7 +139,7 @@ export default function Navigation() {
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
         <IconButton
             as={Link}
-            //href="../pages/Home"
+            href="../Home"
             size={'md'}
             icon={<BiCameraMovie />}
             onClick={isOpen ? onClose : onOpen}

@@ -1,7 +1,9 @@
 import React from 'react';
+import Layout from '../components/Layout';
 
 const Profile = () => {
   return (
+    <Layout>
     <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
@@ -16,6 +18,7 @@ const Profile = () => {
         <div className="col-12 col-lg-3 mb-3">{/* PRINT FRIEND LIST */}</div>
       </div>
     </div>
+    </Layout>
   );
 };
 
