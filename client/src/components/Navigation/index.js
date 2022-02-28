@@ -114,6 +114,7 @@ import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 import { BiCameraMovie } from 'react-icons/bi'
 
 const Links = ['Profile', 'Reviews', 'Friends'];
+const ActionLinks = ['Login', 'Signup'];
 
 const NavLink = ({ children, src }) => (
   <Link
@@ -137,6 +138,8 @@ export default function Navigation() {
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
         <IconButton
+            as={Link}
+            //href="../pages/Home"
             size={'md'}
             icon={<BiCameraMovie />}
             onClick={isOpen ? onClose : onOpen}
@@ -152,21 +155,16 @@ export default function Navigation() {
             </HStack>
           </HStack>
           <Flex alignItems={'center'}>
-            <Button
-              variant={'solid'}
-              colorScheme={'teal'}
-              size={'sm'}
-              mr={4}
-              leftIcon={<AddIcon />}>
-              Action
-            </Button>
             <Menu>
               <MenuButton
                 as={Button}
-                rounded={'full'}
-                variant={'link'}
+                variant={'link', 'solid'}
+                colorScheme={'teal'}
                 cursor={'pointer'}
-                minW={0}>
+                size={'sm'}
+                mr={4}
+                leftIcon={<AddIcon />}>
+                Action
               </MenuButton>
               <MenuList>
                 <MenuItem>Log In</MenuItem>
@@ -180,8 +178,8 @@ export default function Navigation() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link} src={`/${link.toLocaleLowerCase()}`}>{link}</NavLink>
+              {ActionLinks.map((link) => (
+                <NavLink key={link} src={`../pages/${link.toLocaleLowerCase()}`}>{link}</NavLink>
               ))}
             </Stack>
           </Box>
