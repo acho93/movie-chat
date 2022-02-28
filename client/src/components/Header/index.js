@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Header = () => {
+import Navigation from '../Navigation';
+
+function Header() {
+  const [currentPage, handlePageChange] = useState('About');
+
   return (
-    <header className="bg-secondary mb-4 py-2 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <h1>Movie Chat</h1>
-      </div>
-    </header>
+    <div>
+      <Navigation/>
+    </div>
   );
-};
+}
 
 export default Header;

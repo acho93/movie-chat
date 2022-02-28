@@ -1,10 +1,22 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-
 import Home from './pages/Home';
+import Profile from './pages/Profile';
+import ReviewList from './components/ReviewList';
+
+import {
+  ChakraProvider,
+  Box,
+  Text,
+  Link,
+  VStack,
+  Code,
+  Grid,
+  theme,
+} from '@chakra-ui/react';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -18,13 +30,22 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
-        <div className="container">
-          <Home />
-        </div>
-        <Footer />
-      </div>
+      <ChakraProvider theme={theme}>
+        <Box textAlign="center" fontSize="xl">
+          <Grid minH="100vh" p={3}>
+
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/profile' element={<Profile />} />
+              <Route path='/reviewlist' element={<ReviewList />} />
+              {/* <Route path='/portfolio' element={<Portfolio />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/resume' element={<Resume />} /> */}
+            </Routes>
+
+          </Grid>
+        </Box>
+      </ChakraProvider>
     </ApolloProvider>
   );
 }
