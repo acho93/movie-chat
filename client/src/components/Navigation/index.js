@@ -115,7 +115,7 @@ import { BiCameraMovie } from 'react-icons/bi'
 
 const Links = ['Profile', 'Reviews', 'Friends'];
 
-const NavLink = ({ children }) => (
+const NavLink = ({ children, src }) => (
   <Link
     px={2}
     py={1}
@@ -124,7 +124,7 @@ const NavLink = ({ children }) => (
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'#'}>
+    href={src}>
     {children}
   </Link>
 );
@@ -136,29 +136,18 @@ export default function Navigation() {
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <IconButton
+        <IconButton
             size={'md'}
             icon={<BiCameraMovie />}
-            text={"MovieChat"}
-            // aria-label={'Open Menu'}
-            // display={{ md: 'none' }}
-            // onClick={isOpen ? onClose : onOpen}
+            onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>
-            <Avatar
-                  size={'sm'}
-                  src={
-                    BiCameraMovie
-                  }
-                />
-            </Box>
             <HStack
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink key={link} src={`/${link.toLocaleLowerCase()}`}>{link}</NavLink>
               ))}
             </HStack>
           </HStack>
@@ -178,12 +167,6 @@ export default function Navigation() {
                 variant={'link'}
                 cursor={'pointer'}
                 minW={0}>
-                {/* <Avatar
-                  size={'sm'}
-                  src={
-                    
-                  }
-                /> */}
               </MenuButton>
               <MenuList>
                 <MenuItem>Log In</MenuItem>
@@ -198,7 +181,7 @@ export default function Navigation() {
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink key={link} src={`/${link.toLocaleLowerCase()}`}>{link}</NavLink>
               ))}
             </Stack>
           </Box>
