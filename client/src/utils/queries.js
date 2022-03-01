@@ -35,3 +35,24 @@ export const QUERY_REVIEW = gql`
     }
   }
 `;
+
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      email
+      friendCount
+      friends {
+        _id
+        username
+      }
+      reviews {
+        _id
+        reviewText
+        createdAt
+        reactionCount
+      }
+    }
+  }
+`;
