@@ -1,7 +1,5 @@
-// import Login from './pages/Login';
-// import Signup from './pages/Signup';
-
-// import { Link } from 'react-router-dom';
+import React from 'react';
+import Auth from '../../utils/auth';
 
 import {
     Box,
@@ -21,24 +19,13 @@ import {
 } from '@chakra-ui/react';
 import { BiHomeAlt, BiCameraMovie } from 'react-icons/bi'
 
-// const ActionLinks = ['Login', 'Signup'];
-
-// const NavLink = ({ children, src }) => (
-//     <Link
-//         px={2}
-//         py={1}
-//         rounded={'md'}
-//         _hover={{
-//             textDecoration: 'none',
-//             bg: useColorModeValue('gray.200', 'gray.700'),
-//         }}
-//         href={src}>
-//         {children}
-//     </Link>
-// );
-
 export default function Navigation() {
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+    };
 
     return (
         <>
@@ -51,16 +38,6 @@ export default function Navigation() {
                         icon={<BiHomeAlt />}
                         onClick={isOpen ? onClose : onOpen}
                     />
-                    {/* <HStack spacing={8} alignItems={'center'}>
-                        <HStack
-                            as={'nav'}
-                            spacing={4}
-                            display={{ base: 'none', md: 'flex' }}>
-                            {Links.map((link) => (
-                                <NavLink key={link} src={`/${link.toLocaleLowerCase()}`}>{link}</NavLink>
-                            ))}
-                        </HStack>
-                    </HStack> */}
                     <Flex alignItems={'center'}>
                         <Menu>
                             <MenuButton
@@ -74,23 +51,23 @@ export default function Navigation() {
                                 Movie Chat
                             </MenuButton>
                             <MenuList>
-                                <Link href="/login">Login</Link>
-                                <MenuDivider></MenuDivider>
-                                <Link href="/signup">Signup</Link>
+                                {Auth.loggedIn() ? (
+                                <>
+                                    <Link href="/profile">My Profile</Link>
+                                    <MenuDivider></MenuDivider>
+                                    <a href="/" onClick={logout}>Logout</a>
+                                </>
+                                ) : (
+                                <>
+                                    <Link href="/login">Login</Link>
+                                    <MenuDivider></MenuDivider>
+                                    <Link href="/signup">Signup</Link>
+                                </>
+                                )}
                             </MenuList>
                         </Menu>
                     </Flex>
                 </Flex>
-
-                {/* {isOpen ? (
-                    <Box pb={4} display={{ md: 'none' }}>
-                        <Stack as={'nav'} spacing={4}>
-                            {ActionLinks.map((link) => (
-                                <NavLink key={link} src={`/${link.toLocaleLowerCase()}`}>{link}</NavLink>
-                            ))}
-                        </Stack>
-                    </Box>
-                ) : null} */}
             </Box>
         </>
     );

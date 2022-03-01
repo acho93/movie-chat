@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Navigation from '../Navigation';
 
 function Header() {
-  const [currentPage, handlePageChange] = useState('About');
-
   return (
     <div>
       <Navigation/>
