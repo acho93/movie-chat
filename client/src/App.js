@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
-import SingleThought from './pages/SingleThought';
+import SingleReview from './pages/SingleReview';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 
@@ -43,6 +43,10 @@ function App() {
 
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              {/* <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} /> */}
               <Route path='/profile' element={<Profile />} />
               {/* <Route path='/reviewlist' element={<ReviewList />} /> */}
             </Routes>

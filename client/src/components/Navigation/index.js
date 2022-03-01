@@ -1,6 +1,8 @@
 // import Login from './pages/Login';
 // import Signup from './pages/Signup';
 
+// import { Link } from 'react-router-dom';
+
 import {
     Box,
     Flex,
@@ -10,31 +12,30 @@ import {
     Button,
     Menu,
     MenuButton,
+    MenuDivider,
     MenuList,
     MenuItem,
     useDisclosure,
     useColorModeValue,
     Stack,
-    MenuDivider,
 } from '@chakra-ui/react';
 import { BiHomeAlt, BiCameraMovie } from 'react-icons/bi'
 
-const Links = ['Profile', 'Reviews', 'Friends'];
-const ActionLinks = ['Login', 'Signup'];
+// const ActionLinks = ['Login', 'Signup'];
 
-const NavLink = ({ children, src }) => (
-    <Link
-        px={2}
-        py={1}
-        rounded={'md'}
-        _hover={{
-            textDecoration: 'none',
-            bg: useColorModeValue('gray.200', 'gray.700'),
-        }}
-        href={src}>
-        {children}
-    </Link>
-);
+// const NavLink = ({ children, src }) => (
+//     <Link
+//         px={2}
+//         py={1}
+//         rounded={'md'}
+//         _hover={{
+//             textDecoration: 'none',
+//             bg: useColorModeValue('gray.200', 'gray.700'),
+//         }}
+//         href={src}>
+//         {children}
+//     </Link>
+// );
 
 export default function Navigation() {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -45,12 +46,12 @@ export default function Navigation() {
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <IconButton
                         as={Link}
-                        href="/Profile"
+                        href="/"
                         size={'lg'}
                         icon={<BiHomeAlt />}
                         onClick={isOpen ? onClose : onOpen}
                     />
-                    <HStack spacing={8} alignItems={'center'}>
+                    {/* <HStack spacing={8} alignItems={'center'}>
                         <HStack
                             as={'nav'}
                             spacing={4}
@@ -59,7 +60,7 @@ export default function Navigation() {
                                 <NavLink key={link} src={`/${link.toLocaleLowerCase()}`}>{link}</NavLink>
                             ))}
                         </HStack>
-                    </HStack>
+                    </HStack> */}
                     <Flex alignItems={'center'}>
                         <Menu>
                             <MenuButton
@@ -73,16 +74,15 @@ export default function Navigation() {
                                 Movie Chat
                             </MenuButton>
                             <MenuList>
-                                <MenuItem>Log In</MenuItem>
-                                <MenuItem>Sign Up</MenuItem>
-                                <Link to="/login">Login</Link>
-                                <Link to="/signup">Signup</Link>
+                                <Link href="/login">Login</Link>
+                                <MenuDivider></MenuDivider>
+                                <Link href="/signup">Signup</Link>
                             </MenuList>
                         </Menu>
                     </Flex>
                 </Flex>
 
-                {isOpen ? (
+                {/* {isOpen ? (
                     <Box pb={4} display={{ md: 'none' }}>
                         <Stack as={'nav'} spacing={4}>
                             {ActionLinks.map((link) => (
@@ -90,10 +90,8 @@ export default function Navigation() {
                             ))}
                         </Stack>
                     </Box>
-                ) : null}
+                ) : null} */}
             </Box>
-
-            <Box p={4}>Main Content Here</Box>
         </>
     );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleThought = props => {
+const SingleReview = props => {
   return (
     <div>
       <div className="card mb-3">
@@ -18,4 +18,4 @@ const SingleThought = props => {
   );
 };
 
-export default SingleThought;
+export default SingleReview;
