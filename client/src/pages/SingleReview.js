@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_REVIEW } from '../utils/queries';
+import ReactionList from '../components/ReactionList';
 
 const SingleReview = props => {
 
@@ -32,6 +33,8 @@ const SingleReview = props => {
           <p>{review.reviewText}</p>
         </div>
       </div>
+
+      {review.reactionCount > 0 && <ReactionList reactions={review.reactions} />}
     </div>
     </div>
   );
