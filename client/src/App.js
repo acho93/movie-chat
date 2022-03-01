@@ -14,10 +14,6 @@ import Signup from './pages/Signup';
 import {
   ChakraProvider,
   Box,
-  Text,
-  Link,
-  VStack,
-  Code,
   Grid,
   theme,
 } from '@chakra-ui/react';
@@ -52,11 +48,12 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              {/* <Route path="/profile/:username?" element={<Profile />} /> */}
               <Route path="/profile" element={<Profile />} />
+              {/* <Route path="/profile/:username?" element={<Profile />} /> */}
+              {/* <Route exact path="/profile/:username?" component={Profile} /> */}
               <Route path="/review/:id" element={<SingleReview />} />
 
-              <Route element={<NoMatch />} />
+              <Route component={NoMatch} />
             </Routes>
 
           </Grid>
