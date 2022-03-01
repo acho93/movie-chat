@@ -1,7 +1,9 @@
+// import Login from './pages/Login';
+// import Signup from './pages/Signup';
+
 import {
     Box,
     Flex,
-    Avatar,
     HStack,
     Link,
     IconButton,
@@ -13,8 +15,8 @@ import {
     useDisclosure,
     useColorModeValue,
     Stack,
+    MenuDivider,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 import { BiHomeAlt, BiCameraMovie } from 'react-icons/bi'
 
 const Links = ['Profile', 'Reviews', 'Friends'];
@@ -73,6 +75,8 @@ export default function Navigation() {
                             <MenuList>
                                 <MenuItem>Log In</MenuItem>
                                 <MenuItem>Sign Up</MenuItem>
+                                <Link to="/login">Login</Link>
+                                <Link to="/signup">Signup</Link>
                             </MenuList>
                         </Menu>
                     </Flex>

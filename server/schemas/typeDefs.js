@@ -18,13 +18,13 @@ type Review {
     reviewText: String
     createdAt: String
     username: String
-    reactionCount: Int
-    reactions: [Reaction]
+    commentCount: Int
+    comments: [Comment]
 }
 
-type Reaction {
+type Comment {
     _id: ID
-    reactionBody: String
+    commentBody: String
     createdAt: String
     username: String
 }
@@ -46,7 +46,7 @@ type Auth {
       login(email: String!, password: String!): Auth
       addUser(username: String!, email: String!, password: String!): Auth
       addReview(reviewText: String!): Review
-      addReaction(reviewId: ID!, reactionBody: String!): Review
+      addComment(reviewId: ID!, commentBody: String!): Review
       addFriend(friendId: ID!): User
   }
 `;
