@@ -31,7 +31,7 @@ const Home = () => {
             {loading ? (
               <div>Loading...</div>
             ) : (
-              <ReviewList reviews={reviews} title="Some Feed for Review(s)..." />
+              <ReviewList reviews={reviews} title="View the latest movie reviews!" />
             )}
           </div>
           {loggedIn && userData ? (

@@ -58,7 +58,7 @@ function ReviewCard(props) {
           </Link>{' '}
         </Stack>
         <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
-          <Icon 
+          <Icon w={8} h={8}
             as={RiMovie2Line}
           />
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
@@ -69,10 +69,9 @@ function ReviewCard(props) {
               {props.username}
             </Link>{' '}
             <Text color={'gray.500'}>{props.createdAt}</Text>
-            <Link to={`/review/${props._id}`}>
-              Comment: {props.commentCount} || Click to
-              {props.commentCount ? ' see' : ' start'} the discussion!
-            </Link>{' '}
+            <Text>
+              Comment(s): {props.commentCount}
+            </Text>
           </Stack>
         </Stack>
       </Box>
@@ -91,10 +90,10 @@ const ReviewList = ({ reviews, title }) => {
 
   return (
       <div>
-        <h3>{title}HELLO</h3>
+        <h3>{title}</h3>
         <Wrapper>
           <SimpleGrid columns={2} spacing={10}>
-            {reviews.map((review) => (
+            {reviews.slice(0,10).map((review) => (
               <Box>
                 <ReviewCard
                     _id={review._id}

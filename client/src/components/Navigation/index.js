@@ -55,7 +55,7 @@ export default function Navigation() {
                                 <>
                                     <Link href="/profile">My Profile</Link>
                                     <MenuDivider></MenuDivider>
-                                    <a href="/" onClick={logout}>Logout</a>
+                                 <a href="/" onClick={logout}>Logout</a>
                                 </>
                                 ) : (
                                 <>
