@@ -12,6 +12,7 @@ After cloning the repository from GitHub, install the necessary dependencies usi
 
 ## Contribution
 Ashley Cho
+Adam Menkes
 
 ## Questions
 Please contact my on GitHub or email

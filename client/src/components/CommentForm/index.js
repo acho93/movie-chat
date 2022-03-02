@@ -38,7 +38,7 @@ const CommentForm = ({ reviewId }) => {
   return (
     <Box
       border='solid'
-      borderColor='red'
+      borderColor='black'
       h={300}
       w={300}
       m={30}>
