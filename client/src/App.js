@@ -6,7 +6,6 @@ import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
-import NoMatch from './pages/NoMatch';
 import SingleReview from './pages/SingleReview';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
@@ -52,8 +51,6 @@ function App() {
                 <Route path=":username" element={<Profile />} />
               </Route>
               <Route path="/review/:id" element={<SingleReview />} />
-
-              <Route component={NoMatch} />
             </Routes>
 
           </Grid>
