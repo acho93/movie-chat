@@ -50,7 +50,7 @@ function ReviewCard(props) {
             color={useColorModeValue('gray.700', 'white')}
             fontSize={'2xl'}
             fontFamily={'body'}>
-            NAME OF MOVIE
+            {props.movieTitle}
           </Heading>
           <Text color={'gray.500'}>
             {props.reviewText}
@@ -99,6 +99,7 @@ const ReviewList = ({ reviews, title }) => {
                     _id={review._id}
                     username={review.username}
                     createdAt={review.createdAt}
+                    movieTitle={review.movieTitle}
                     reviewText={review.reviewText}
                     commentCount={review.commentCount}
                 />

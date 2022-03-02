@@ -38,12 +38,13 @@ db.once('open', async () => {
   // create reviews
   let createdReviews = [];
   for (let i = 0; i < 100; i += 1) {
+    const movieTitle = faker.lorem.words(Math.round(Math.random() * 3) + 1);
     const reviewText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-    const createdReview = await Review.create({ reviewText, username });
+    const createdReview = await Review.create({ movieTitle, reviewText, username });
 
     const updatedUser = await User.updateOne(
       { _id: userId },
