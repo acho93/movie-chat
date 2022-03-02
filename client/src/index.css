@@ -1,10 +1,11 @@
 :root {
-  --primary: #497573;
-  --secondary: #99f7f2;
+  --primary: #000;
+  --secondary: #db0000;
   --tertiary: #b2c2c1;
   --quatrinary: #cadbda;
+  --fifth: #000000;
   --light: #e1f5f4;
-  --dark: #6c7575;
+  --dark: #ffffff;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -136,14 +137,14 @@ nav a:hover {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
-  background-color: var(--light);
+  /* background-color: var(--light); */
   color: var(--dark);
 }
 
 .card-header {
-  color: var(--secondary);
+  color: var(--fifth);
   margin: 0;
-  background-color: var(--dark);
+  /* background-color: var(--dark); */
   padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
@@ -158,6 +159,7 @@ nav a:hover {
 .form-input,
 .form-textarea {
   display: block;
+  color: #000;
 }
 
 .form-label {
@@ -170,7 +172,7 @@ nav a:hover {
   padding: 0.75rem;
   margin: 0.2rem 0;
   font-size: 1.2rem;
-  border: 2px solid var(--dark);
+  border: 2px solid var(--fifth);
   border-radius: var(--border-radius);
 }
 
@@ -186,7 +188,7 @@ nav a:hover {
   cursor: pointer;
   line-height: 20px;
   display: inline-block;
-  color: var(--secondary);
+  color: var(--fifth);
   margin-right: 0.2rem;
 }
 
@@ -752,7 +754,7 @@ nav a:hover {
 }
 
 .text-secondary {
-  color: var(--secondary);
+  color: var(--fifth);
 }
 
 .text-tertiary {

@@ -65,7 +65,7 @@ const ReviewForm = () => {
   return (
     <Box
       border='solid'
-      borderColor='red'
+      borderColor='black'
       h={300}
       w={300}
       m={30}>
@@ -101,7 +101,7 @@ const ReviewForm = () => {
         <Button
           type='submit'
           leftIcon={<BsPencil />}
-          colorScheme='yellow'
+          colorScheme='red'
           variant='solid'
           w={100}>
           Submit

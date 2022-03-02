@@ -46,7 +46,7 @@ function ReviewCard(props) {
             fontFamily={'body'}>
             {props.movieTitle}
           </Heading>
-          <Text color={'gray.500'}>
+          <Text color={'#564d4d'}>
             {props.reviewText}
           </Text>
           </Link>{' '}
@@ -63,7 +63,7 @@ function ReviewCard(props) {
               className="text-light">
               {props.username}
             </Link>{' '}
-            <Text color={'gray.500'}>{props.createdAt}</Text>
+            <Text color={'#564d4d'}>{props.createdAt}</Text>
             <Text>
               Comment(s): {props.commentCount}
             </Text>
@@ -87,8 +87,8 @@ const ReviewList = ({ reviews, title }) => {
   return (
       <div>
         <h3>{title}</h3>
-        <Wrapper>
-          <SimpleGrid columns={2} spacing={10}>
+        <Wrapper >
+          <SimpleGrid columns={2} spacing={10} >
             {reviews.slice(0,10).map((review) => (
               <Box>
                 <ReviewCard

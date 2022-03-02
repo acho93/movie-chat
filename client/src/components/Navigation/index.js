@@ -26,7 +26,7 @@ export default function Navigation() {
 
     return (
         <>
-            <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+            <Box bg={useColorModeValue('#564d4d', 'gray.900')} px={4}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <IconButton
                         as={Link}
@@ -34,13 +34,14 @@ export default function Navigation() {
                         size={'lg'}
                         icon={<BiHomeAlt />}
                         onClick={isOpen ? onClose : onOpen}
+                        colorScheme={'red'}
                     />
                     <Flex alignItems={'center'}>
                         <Menu>
                             <MenuButton
                                 as={Button}
                                 variant={'link', 'solid'}
-                                colorScheme={'teal'}
+                                colorScheme={'red'}
                                 cursor={'pointer'}
                                 size={'sm'}
                                 mr={4}
