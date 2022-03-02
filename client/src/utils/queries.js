@@ -4,6 +4,7 @@ export const QUERY_REVIEWS = gql`
   query reviews($username: String) {
     reviews(username: $username) {
       _id
+      movieTitle
       reviewText
       createdAt
       username
@@ -22,6 +23,7 @@ export const QUERY_REVIEW = gql`
   query review($id: ID!) {
     review(_id: $id) {
       _id
+      movieTitle
       reviewText
       createdAt
       username
@@ -49,6 +51,7 @@ export const QUERY_USER = gql`
       }
       reviews {
         _id
+        movieTitle
         reviewText
         createdAt
         commentCount
@@ -66,6 +69,7 @@ export const QUERY_ME = gql`
       friendCount
       reviews {
         _id
+        movieTitle
         reviewText
         createdAt
         commentCount
