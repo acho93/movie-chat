@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-//import Image from '../images/movie-popcorn.jpg';
+// import Image from './movie-popcorn.jpg';
 import {
   Box,
   Center,
@@ -11,6 +11,7 @@ import {
   SimpleGrid,
   Stack,
   useColorModeValue,
+  Image,
 } from '@chakra-ui/react';
 import { RiMovie2Line } from 'react-icons/ri'
 
@@ -37,14 +38,6 @@ function ReviewCard(props) {
           /> */}
         </Box>
         <Stack>
-          {/* <Text
-            color={'green.500'}
-            textTransform={'uppercase'}
-            fontWeight={800}
-            fontSize={'sm'}
-            letterSpacing={1.1}>
-            Blog
-          </Text> */}
           <Link to={`/review/${props._id}`}>
           <Heading
             color={useColorModeValue('gray.700', 'white')}
@@ -107,31 +100,6 @@ const ReviewList = ({ reviews, title }) => {
             ))}
           </SimpleGrid>
         </Wrapper>
-
-        {/* {reviews &&
-          reviews.map(review => (
-            <div key={review._id} className="card mb-3">
-              <p className="card-header">
-                <Link
-                  to={`/profile/${review.username}`}
-                  style={{ fontWeight: 700 }}
-                  className="text-light"
-                >
-                  {review.username}
-                </Link>{' '}
-                 review on {review.createdAt}
-              </p>
-              <div className="card-body">
-                <Link to={`/review/${review._id}`}>
-                  <p>{review.reviewText}</p>
-                  <p className="mb-0">
-                    Comments: {review.commentCount} || Click to{' '}
-                    {review.commentCount ? 'see' : 'start'} the discussion!
-                  </p>
-                </Link>
-              </div>
-            </div>
-          ))} */}
       </div>
   );
 };

@@ -4,7 +4,6 @@ import Auth from '../../utils/auth';
 import {
     Box,
     Flex,
-    HStack,
     Link,
     IconButton,
     Button,
@@ -12,10 +11,8 @@ import {
     MenuButton,
     MenuDivider,
     MenuList,
-    MenuItem,
     useDisclosure,
     useColorModeValue,
-    Stack,
 } from '@chakra-ui/react';
 import { BiHomeAlt, BiCameraMovie } from 'react-icons/bi'
 
