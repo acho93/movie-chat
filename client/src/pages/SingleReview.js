@@ -1,9 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
+import Auth from '../utils/auth';
+
 import { useQuery } from '@apollo/client';
 import { QUERY_REVIEW } from '../utils/queries';
 import ReactionList from '../components/ReactionList';
+import ReactionForm from '../components/ReactionForm';
 
 const SingleReview = props => {
 
@@ -36,6 +39,7 @@ const SingleReview = props => {
 
       {review.reactionCount > 0 && <ReactionList reactions={review.reactions} />}
     </div>
+    {Auth.loggedIn() && <ReactionForm reviewId={review._id} />}
     </div>
   );
 };

@@ -37,3 +37,33 @@ export const ADD_FRIEND = gql`
     }
   }
 `;
+
+export const ADD_REVIEW = gql`
+  mutation addReview($reviewText: String!) {
+    addReview(reviewText: $reviewText) {
+      _id
+      reviewText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_REACTION = gql`
+  mutation addReaction($reviewId: ID!, $reactionBody: String!) {
+    addReaction(reviewId: $reviewId, reactionBody: $reactionBody) {
+      _id
+      reactionCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
