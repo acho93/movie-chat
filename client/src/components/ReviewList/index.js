@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// import Image from './movie-popcorn.jpg';
+import PopcornImage from '../../images/movie-popcorn.jpg';
 import {
   Box,
   Center,
   Heading,
   Icon,
+  Image,
   Text,
   SimpleGrid,
   Stack,
-  useColorModeValue,
-  Image,
+  useColorModeValue
 } from '@chakra-ui/react';
 import { RiMovie2Line } from 'react-icons/ri'
 
@@ -27,15 +27,16 @@ function ReviewCard(props) {
         p={6}
         overflow={'hidden'}>
         <Box
-          h={'210px'}
+          h={'250px'}
           bg={'gray.100'}
           mt={-6}
           mx={-6}
           mb={6}
           pos={'relative'}>
-          {/* <Image
-            layout={'fill'}
-          /> */}
+          <Image
+            src={PopcornImage}
+            objectFit={'cover'}
+          />
         </Box>
         <Stack>
           <Link to={`/review/${props._id}`}>
@@ -50,11 +51,12 @@ function ReviewCard(props) {
           </Text>
           </Link>{' '}
         </Stack>
-        <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
+        <Stack mt={6} direction={'row'} spacing={4} alignItems={'center'}>
           <Icon w={8} h={8}
             as={RiMovie2Line}
           />
-          <Stack direction={'column'} spacing={0} fontSize={'sm'}>
+          <Center>
+          <Stack direction={'column'} spacing={0} fontSize={'sm'} justifyContent={'center'}>
             <Link
               to={`/profile/${props.username}`}
               style={{ fontWeight: 700 }}
@@ -66,6 +68,7 @@ function ReviewCard(props) {
               Comment(s): {props.commentCount}
             </Text>
           </Stack>
+          </Center>
         </Stack>
       </Box>
     </Center>

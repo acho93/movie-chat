@@ -3,7 +3,22 @@ import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from '../../utils/mutations';
 import { QUERY_REVIEWS, QUERY_ME } from '../../utils/queries';
 
+import {
+  Box,
+  Button,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Stack,
+  Text,
+  Textarea
+} from '@chakra-ui/react';
+
+import { MdLocalMovies } from 'react-icons/md'
+import { BsPencil } from 'react-icons/bs'
+
 const ReviewForm = () => {
+  const [movieTitle, setTitle] = useState('');
   const [reviewText, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -29,23 +44,17 @@ const ReviewForm = () => {
     }
   });
 
-  const handleChange = event => {
-    if (event.target.value.length <= 280) {
-      setText(event.target.value);
-      setCharacterCount(event.target.value.length);
-    }
-  };
-
   const handleFormSubmit = async event => {
     event.preventDefault();
   
     try {
       // add review to database
       await addReview({
-        variables: { reviewText }
+        variables: { movieTitle, reviewText }
       });
   
       // clear form value
+      setTitle('');
       setText('');
       setCharacterCount(0);
     } catch (e) {
@@ -54,26 +63,52 @@ const ReviewForm = () => {
   };
 
   return (
-    <div>
-      <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
-      <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
-        onSubmit={handleFormSubmit}
-        >
-        <textarea
-          placeholder="Here's a new review..."
-          value={reviewText}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
+    <Box
+      border='solid'
+      borderColor='red'
+      h={300}
+      w={300}
+      m={30}>
+      <Box
+        as='form'
+        onSubmit={handleFormSubmit}>
+      <Stack m={3}>
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents='none'
+            children={<MdLocalMovies color='gray.300' />}
+          />
+          <Input
+            type='text'
+            placeholder='Movie Title'
+            onChange={(event) => setTitle(event.target.value)}
+            value={movieTitle}
+          />
+        </InputGroup>
+
+        <InputGroup>
+          <Textarea
+            type='text'
+            placeholder='Write your review here'
+            onChange={(event) => {setText(event.target.value); setCharacterCount(event.target.value.length)}}
+            value={reviewText}
+            />
+        </InputGroup>
+        <Text>
+          {characterCount === 280 || error ? 'text-error' : ''}
+          Character Count: {characterCount}/280
+        </Text>
+        <Button
+          type='submit'
+          leftIcon={<BsPencil />}
+          colorScheme='yellow'
+          variant='solid'
+          w={100}>
           Submit
-        </button>
-      </form>
-    </div>
+        </Button>
+      </Stack>
+      </Box>
+    </Box>
   );
 };
 
