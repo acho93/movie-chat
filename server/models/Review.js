@@ -4,6 +4,12 @@ const dateFormat = require('../utils/dateFormat');
 
 const reviewSchema = new Schema(
   {
+    movieTitle: {
+      type: String,
+      required: 'You need to leave a title!',
+      minlength: 1,
+      maxlength: 280
+    },
     reviewText: {
       type: String,
       required: 'You need to leave a review!',

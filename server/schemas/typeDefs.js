@@ -15,6 +15,7 @@ type User {
 
 type Review {
     _id: ID
+    movieTitle: String
     reviewText: String
     createdAt: String
     username: String
@@ -45,7 +46,7 @@ type Auth {
   type Mutation {
       login(email: String!, password: String!): Auth
       addUser(username: String!, email: String!, password: String!): Auth
-      addReview(reviewText: String!): Review
+      addReview(movieTitle: String!, reviewText: String!): Review
       addComment(reviewId: ID!, commentBody: String!): Review
       addFriend(friendId: ID!): User
   }
