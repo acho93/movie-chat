@@ -48,9 +48,9 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/profile" element={<Profile />} />
-              {/* <Route path="/profile/:username?" element={<Profile />} /> */}
-              {/* <Route exact path="/profile/:username?" component={Profile} /> */}
+              <Route path="/profile" element={<Profile />}>
+                <Route path=":username" element={<Profile />} />
+              </Route>
               <Route path="/review/:id" element={<SingleReview />} />
 
               <Route component={NoMatch} />
