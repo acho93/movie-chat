@@ -66,13 +66,14 @@ const ReviewForm = () => {
     <Box
       border='solid'
       borderColor='black'
-      h={300}
+      h={250}
       w={300}
-      m={30}>
+      m={30}
+      >
       <Box
         as='form'
         onSubmit={handleFormSubmit}>
-      <Stack m={3}>
+      <Stack m={3} align={'center'}>
         <InputGroup>
           <InputLeftElement
             pointerEvents='none'

@@ -11,7 +11,16 @@ import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { ADD_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-
+import {
+  Box,
+  Button,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Stack,
+  Text,
+  Textarea
+} from '@chakra-ui/react';
 
 const Profile = () => {
   const [addFriend] = useMutation(ADD_FRIEND);
@@ -51,7 +60,7 @@ const Profile = () => {
 
   return (
     <Layout>
-      <div>
+      {/* <div>
         <div className="flex-row mb-3">
           <h2 className="bg-dark text-secondary p-3 display-inline-block">
             Viewing {userParam ? `${user.username}'s` : 'your'} profile.
@@ -77,7 +86,23 @@ const Profile = () => {
           </div>
         </div>
         <div className="mb-3">{!userParam && <ReviewForm />}</div>
-      </div>
+      </div> */}
+
+      <Box>
+        <Stack direction={'row'}>
+          <ReviewList reviews={user.reviews} title={`${user.username}'s reviews...`} />
+          <Stack direction={'column'}>
+            <Box className="mb-3">{!userParam && <ReviewForm />}</Box>
+            <Box className="col-12 col-lg-3 mb-3">
+            <FriendList
+              username={user.username}
+              friendCount={user.friendCount}
+              friends={user.friends}
+            />
+            </Box>
+          </Stack>
+        </Stack>
+      </Box>
     </Layout>
   );
 };

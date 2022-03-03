@@ -9,6 +9,17 @@ import ReviewList from '../components/ReviewList';
 import FriendList from '../components/FriendList';
 import ReviewForm from '../components/ReviewForm';
 
+import {
+  Box,
+  Button,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Stack,
+  Text,
+  Textarea
+} from '@chakra-ui/react';
+
 const Home = () => {
   const { loading, data } = useQuery(QUERY_REVIEWS);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
@@ -20,31 +31,32 @@ const Home = () => {
 
   return (
     <Layout>
-      <main>
-        <div className="flex-row justify-space-between">
-          {loggedIn && (
-            <div className="col-12 mb-3">
-              <ReviewForm />
-            </div>
-          )}
-          <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+      <Box>
+        <Stack direction={'row'}>
+          
+          <Box className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
             {loading ? (
               <div>Loading...</div>
             ) : (
               <ReviewList reviews={reviews} title="View the latest movie reviews!" />
             )}
-          </div>
+          </Box>
+          {loggedIn && (
+            <Box className="col-12 mb-3">
+              <ReviewForm />
+            </Box>
+          )}
           {loggedIn && userData ? (
-            <div className="col-12 col-lg-3 mb-3">
+            <Box className="col-12 col-lg-3 mb-3">
               <FriendList
                 username={userData.me.username}
                 friendCount={userData.me.friendCount}
                 friends={userData.me.friends}
               />
-            </div>
+            </Box>
           ) : null}
-        </div>
-      </main>
+        </Stack>
+      </Box>
     </Layout>
   );
 };

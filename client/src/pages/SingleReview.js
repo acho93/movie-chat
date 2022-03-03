@@ -21,50 +21,50 @@ import {
 
 const SingleReviewContent = ({ children }) => {
   return (
-      <Stack
-          bg={useColorModeValue('white', 'gray.800')}
-          boxShadow={'lg'}
-          p={8}
-          rounded={'xl'}
-          align={'center'}
-          pos={'relative'}
-          _after={{
-              content: `""`,
-              w: 0,
-              h: 0,
-              borderLeft: 'solid transparent',
-              borderLeftWidth: 16,
-              borderRight: 'solid transparent',
-              borderRightWidth: 16,
-              borderTop: 'solid',
-              borderTopWidth: 16,
-              borderTopColor: useColorModeValue('white', 'gray.800'),
-              pos: 'absolute',
-              bottom: '-16px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-          }}>
-          {children}
-      </Stack>
+    <Stack
+      bg={useColorModeValue('white', 'gray.800')}
+      boxShadow={'lg'}
+      p={8}
+      rounded={'xl'}
+      align={'center'}
+      pos={'relative'}
+      _after={{
+        content: `""`,
+        w: 0,
+        h: 0,
+        borderLeft: 'solid transparent',
+        borderLeftWidth: 16,
+        borderRight: 'solid transparent',
+        borderRightWidth: 16,
+        borderTop: 'solid',
+        borderTopWidth: 16,
+        borderTopColor: useColorModeValue('white', 'gray.800'),
+        pos: 'absolute',
+        bottom: '-16px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+      }}>
+      {children}
+    </Stack>
   );
 };
 
 function SingleReviewCard(props) {
   return (
     <Box bg={useColorModeValue('gray.100', 'gray.700')}>
-        <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
-            <Stack
-                direction={{ base: 'column', md: 'row' }}
-                spacing={{ base: 10, md: 4, lg: 10 }}>
-                    <SingleReviewContent>
-                        <Text>{props.reviewText}</Text>
-                        <Link
-                            to={`/profile/${props.username}`}>
-                            {props.username} reviewed on {props.createdAt}
-                          </Link>
-                    </SingleReviewContent>
-            </Stack>
-        </Container>
+      <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
+        <Stack
+          direction={{ base: 'column', md: 'row' }}
+          spacing={{ base: 10, md: 4, lg: 10 }}>
+          <SingleReviewContent>
+            <Text>{props.reviewText}</Text>
+            <Link
+              to={`/profile/${props.username}`}>
+              {props.username} reviewed on {props.createdAt}
+            </Link>
+          </SingleReviewContent>
+        </Stack>
+      </Container>
     </Box>
   );
 }
@@ -84,17 +84,21 @@ const SingleReview = ({ reviews }) => {
 
   return (
     <Layout>
-      <div>
+      <Box>
         <Heading>MOVIE REVIEW</Heading>
-        <SingleReviewCard
-          username={review.username}
-          createdAt={review.createdAt}
-          reviewText={review.reviewText}
-        ></SingleReviewCard>
-        <Text>COMMENT(S)</Text>
-        {review.commentCount > 0 && <CommentList comments={review.comments} />}
-      {Auth.loggedIn() && <CommentForm reviewId={review._id} />}
-      </div>
+        <Stack direction={'column'} align={'center'} m={5}>
+          <SingleReviewCard
+            username={review.username}
+            createdAt={review.createdAt}
+            reviewText={review.reviewText}
+          ></SingleReviewCard>
+          <Box>
+          <Text fontSize='2xl' fontWeight={'semibold'}>COMMENT(S)</Text>
+          {review.commentCount > 0 && <CommentList comments={review.comments} />}
+          </Box>
+          {Auth.loggedIn() && <CommentForm reviewId={review._id} />}
+        </Stack>
+      </Box>
     </Layout>
   );
 };
