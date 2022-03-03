@@ -11,13 +11,7 @@ import ReviewForm from '../components/ReviewForm';
 
 import {
   Box,
-  Button,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Stack,
-  Text,
-  Textarea
+  Stack
 } from '@chakra-ui/react';
 
 const Home = () => {

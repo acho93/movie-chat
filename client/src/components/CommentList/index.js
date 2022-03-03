@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 import {
     Box,
-    Flex,
-    Heading,
     Text,
     Stack,
     Container,

@@ -10,12 +10,10 @@ import Auth from '../utils/auth';
 
 import {
   Box,
-  Flex,
   Heading,
   Text,
   Stack,
   Container,
-  SimpleGrid,
   useColorModeValue,
 } from '@chakra-ui/react';
 
