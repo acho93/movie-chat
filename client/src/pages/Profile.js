@@ -14,13 +14,10 @@ import Auth from '../utils/auth';
 import {
   Box,
   Button,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Stack,
-  Text,
-  Textarea
+  Stack
 } from '@chakra-ui/react';
+
+import { BsFillPersonPlusFill } from 'react-icons/bs'
 
 const Profile = () => {
   const [addFriend] = useMutation(ADD_FRIEND);
@@ -60,45 +57,28 @@ const Profile = () => {
 
   return (
     <Layout>
-      {/* <div>
-        <div className="flex-row mb-3">
-          <h2 className="bg-dark text-secondary p-3 display-inline-block">
-            Viewing {userParam ? `${user.username}'s` : 'your'} profile.
-          </h2>
-          {userParam && (
-            <button className="btn ml-auto" onClick={handleClick}>
-              Add Friend
-            </button>
-          )}
-        </div>
-
-        <div className="flex-row justify-space-between mb-3">
-          <div className="col-12 mb-3 col-lg-8">
-            <ReviewList reviews={user.reviews} title={`${user.username}'s reviews...`} />
-          </div>
-
-          <div className="col-12 col-lg-3 mb-3">
-            <FriendList
-              username={user.username}
-              friendCount={user.friendCount}
-              friends={user.friends}
-            />
-          </div>
-        </div>
-        <div className="mb-3">{!userParam && <ReviewForm />}</div>
-      </div> */}
-
       <Box>
         <Stack direction={'row'}>
           <ReviewList reviews={user.reviews} title={`${user.username}'s reviews...`} />
           <Stack direction={'column'}>
-            <Box className="mb-3">{!userParam && <ReviewForm />}</Box>
-            <Box className="col-12 col-lg-3 mb-3">
-            <FriendList
-              username={user.username}
-              friendCount={user.friendCount}
-              friends={user.friends}
-            />
+            <Box>{!userParam && <ReviewForm />}</Box>
+            <Box>
+              <FriendList
+                username={user.username}
+                friendCount={user.friendCount}
+                friends={user.friends}
+              />
+              {userParam && (
+              <Button
+                type='submit'
+                leftIcon={<BsFillPersonPlusFill />}
+                colorScheme='yellow'
+                variant='solid'
+                w={150}
+                onClick={handleClick}>
+                Add Friend
+              </Button>
+              )}
             </Box>
           </Stack>
         </Stack>
