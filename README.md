@@ -5,6 +5,8 @@ MovieChat is an application that allows users to write reviews about movies. Use
 
 Here is a link to the deployed application: 
 
+<img width="975" alt="deployed-app" src="https://user-images.githubusercontent.com/89879289/156474633-3f704c36-5e78-4665-8bd4-90d5fc0786e2.png">
+
 ## Installation
 After cloning the repository from GitHub, install the necessary dependencies using 'npm i'. To run the application on your local browser, run 'npm run develop' in the root directory.
 
